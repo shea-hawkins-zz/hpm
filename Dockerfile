@@ -20,10 +20,12 @@ RUN echo deb [arch=amd64] "http://storage.googleapis.com/bazel-apt stable jdk1.8
 RUN curl https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg \
     | apt-key add -
 
-# Install bazel and dependencies
+# Install and extract bazel
 RUN apt-get update \
-    && apt-get install -y bazel
+    && apt-get install -y bazel \
+    && bazel
 
 
 RUN mkdir -p /usr/bapm
 WORKDIR /usr/bapm
+COPY BUILD BUILD
