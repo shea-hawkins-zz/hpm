@@ -27,4 +27,3 @@ RUN apt-get update \
 
 RUN mkdir -p /usr/bapm
 WORKDIR /usr/bapm
-COPY BUILD BUILD
