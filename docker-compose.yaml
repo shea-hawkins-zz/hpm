@@ -5,4 +5,4 @@ services:
     # current docker-compose bug with tty #3106
     # tty: true
     volumes:
-      - .:/usr/bapm
+      - ./src:/usr/bapm/src
