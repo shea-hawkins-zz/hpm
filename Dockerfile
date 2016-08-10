@@ -25,7 +25,9 @@ RUN apt-get update \
     && apt-get install -y bazel \
     && bazel
 
+RUN mkdir -p /usr/bapm/ /usr/bapm/src/
+WORKDIR /usr/bapm/src/
 
-RUN mkdir -p /usr/bapm
-WORKDIR /usr/bapm
-COPY BUILD BUILD
+# Compatability command for retrieving builds on windows
+RUN alias mvBuild="rm -rf /usr/bapm/src/built \
+      && cp -R /root/.cache/bazel/_bazel_root /usr/bapm/src/built"

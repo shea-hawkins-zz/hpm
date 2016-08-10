@@ -1,0 +1,8 @@
+version: '2'
+services:
+  bapm-dev:
+    build: .
+    # current docker-compose bug with tty #3106
+    # tty: true
+    volumes:
+      - ./src:/usr/bapm/src
