@@ -1,0 +1,9 @@
+maven_jar (
+  name = "com_beust_jcommander_1",
+  artifact = "com.beust:jcommander:1.48"
+)
+
+maven_jar (
+  name = "com_google_guava_guava",
+  artifact = "com.google.guava:guava:18.0"
+)
