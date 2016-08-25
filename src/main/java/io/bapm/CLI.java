@@ -13,10 +13,8 @@ public class CLI {
 
     // Can swap this section with 'Cabinet' or 'Stew' API for multiple spices.
     Spice spice = new BazelSpice();
-    spice.getCommands().forEach(command -> {
-      command.names.forEach(name -> {
-        jc.addCommand(name, command);
-      });
+    spice.getCommands().forEach((name, command) -> {
+      jc.addCommand(name, command);
     });
     jc.parse(args);
     //spice.sendCommand(jc);

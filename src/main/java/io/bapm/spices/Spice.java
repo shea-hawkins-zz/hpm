@@ -11,7 +11,7 @@ public abstract class Spice {
   public Spice () {
     commands = new ArrayList<Command>();
   }
-  public ArrayList<Command> getCommands() {
+  public Map<String, Command> getCommands() {
     return commands;
   }
   public void addCommandAction(Command command, Action action, String[] names) {
