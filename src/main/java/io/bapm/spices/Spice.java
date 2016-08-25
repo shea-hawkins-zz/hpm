@@ -1,26 +1,27 @@
 package io.bapm;
 
 import java.util.ArrayList;
+import java.util.Map;
 import com.beust.jcommander.JCommander;
 
 public abstract class Spice {
-  private ArrayList<Command> commands = new ArrayList<Command>();
+  private Map<String, Command> commands = new Map<String, Command>();
+  private Map<String, Action> actions = new Map<String, Action>();
+
   public Spice () {
     commands = new ArrayList<Command>();
   }
   public ArrayList<Command> getCommands() {
     return commands;
   }
-  public void addCommand(Command command) {
-    commands.add(command);
+  public void addCommandAction(Command command, Action action, String[] names) {
+    for (String name : names) {
+      commands[name] = command;
+      actions[name] = action;
+    }
   }
   public execute(JCommander jc) {
-    String targetCommand = jc.getParsedCommand();
-    commands.forEach(command -> {
-      command.names.forEach(name -> {
-        if (name.equals(targetCommand)) {
-          command.execute(jc);
-        }
-    });
+    String targetAction = jc.getParsedCommand();
+    actions[targetAction].execute(jc);
   }
 }

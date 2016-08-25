@@ -3,8 +3,11 @@ package io.bapm;
 class BazelSpice extends Spice {
   public BazelSpice() {
     Command init = new InitCommand();
-    this.addCommand(init);
+    Action initAction = new InitAction();
+    this.addCommand(init, initAction, {"init"});
+
     Command install = new InstallCommand();
-    this.addCommand(install);
+    Action installAction = new InstallAction();
+    this.addCommand(install, installAction, {"install", "i"});
   }
 }
